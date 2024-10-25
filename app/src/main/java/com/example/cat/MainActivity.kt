@@ -36,6 +36,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            ScreenData()
 
         }
     }
@@ -68,11 +69,13 @@ fun ScreenData(){
         }
 
     }
+    ScreenUi(fact = fact)
 }
 
 @Composable
 fun ScreenUi(fact: CatFacts){
-    Column(modifier = Modifier.fillMaxSize()
+    Column(modifier = Modifier
+        .fillMaxSize()
         .padding(16.dp),
         verticalArrangement = Arrangement.Center) {
         Text(text = "Cat Facts:", modifier = Modifier.padding(bottom = 25.dp), fontSize = 26.sp)
