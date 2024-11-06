@@ -28,8 +28,6 @@ class CatViewModel: ViewModel() {
             }catch (e: Exception){
                 _catResults.value = NetworkResponse.Error("Error fetching data")
             }
-
-
         }
     }
 }
