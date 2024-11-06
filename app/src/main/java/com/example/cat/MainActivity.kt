@@ -24,9 +24,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModelProvider
 import com.example.cat.models.CatFacts
+import com.example.cat.models.CatViewModel
 import com.example.cat.ui.theme.CatTheme
 import com.example.cat.utils.RetrofitInstance
+import com.example.cat.view.HomeData
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.io.IOException
@@ -35,14 +38,16 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        val catViewModel= ViewModelProvider(this)[CatViewModel::class.java]
         setContent {
-            ScreenData()
+            //ScreenData()
+            HomeData(viewModel = catViewModel)
 
         }
     }
 }
 
-@Composable
+/*@Composable
 fun ScreenData(){
     var fact by remember {
         mutableStateOf(CatFacts())
@@ -82,4 +87,4 @@ fun ScreenUi(fact: CatFacts){
         Text(text = fact.fact, fontSize = 26.sp, fontWeight = FontWeight.Bold, lineHeight = 40.sp)
 
     }
-}
+}*/

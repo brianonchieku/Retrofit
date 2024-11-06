@@ -42,10 +42,7 @@ fun HomeData(viewModel: CatViewModel){
             }
             null -> TODO()
         }
-
     }
-
-
 }
 
 @Composable
